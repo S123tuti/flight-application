@@ -2,7 +2,7 @@
 .form{
     border: 2px solid black;
     width: 20rem;
-    height: 20rem;
+    height: 17rem;
     padding: 5px;
     margin: auto;
 }
@@ -41,3 +41,4 @@ table{
     border: 1px solid red;
     width: 50%;
 }
+

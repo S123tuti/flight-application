@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "../components/Home/style.css";
+import "./style.css";
 import axios from "axios";
 
 const Home = () => {
@@ -8,11 +8,13 @@ const Home = () => {
     let [date, setDate] = useState("")
     let [table, setTable] = useState([])
     let [condition , setCondition] = useState(false)
+    let [loding , setLoding] = useState(false)
 
     console.log(table)
 
     const handdleClick = async (e) =>{
       e.preventDefault()
+       setLoding(true)
         let res =   await axios.post("http://localhost:3500/flights",{
             source : source,
             destination: destination,
@@ -23,6 +25,7 @@ const Home = () => {
          setDestination("")
          setDate("")
          setCondition(true)
+         setLoding(false)
     }
   return (
     
@@ -44,6 +47,9 @@ const Home = () => {
         
         <button className='int' onClick={handdleClick}>Submit</button>
         </form> 
+        {
+         loding && <h4>Please wait data is loding ...</h4>
+        }
         {condition &&
         <div className='flightData'>
             <table border="1">
