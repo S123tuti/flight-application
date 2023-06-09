@@ -8,13 +8,13 @@ const Home = () => {
     let [date, setDate] = useState("")
     let [table, setTable] = useState([])
     let [condition , setCondition] = useState(false)
-    let [loding , setLoding] = useState(false)
+    let [loading , setLoading] = useState(false)
 
     console.log(table)
 
     const handdleClick = async (e) =>{
       e.preventDefault()
-       setLoding(true)
+       setLoading(true)
         let res =   await axios.post("http://localhost:3500/flights",{
             source : source,
             destination: destination,
@@ -25,7 +25,7 @@ const Home = () => {
          setDestination("")
          setDate("")
          setCondition(true)
-         setLoding(false)
+         setLoading(false)
     }
   return (
     
@@ -48,7 +48,7 @@ const Home = () => {
         <button className='int' onClick={handdleClick}>Submit</button>
         </form> 
         {
-         loding && <h4>Please wait data is loding ...</h4>
+         loading && <h4>Please wait data is loading ...</h4>
         }
         {condition &&
         <div className='flightData'>
