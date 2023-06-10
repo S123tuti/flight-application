@@ -15,7 +15,7 @@ const Home = () => {
     const handdleClick = async (e) =>{
       e.preventDefault()
        setLoading(true)
-        let res =   await axios.post("http://localhost:3500/flights",{
+        let res =   await axios.post("https://flight-app1.onrender.com/flights",{
             source : source,
             destination: destination,
             date : date
